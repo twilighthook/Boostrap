@@ -4,9 +4,14 @@
     Author     : User
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.mysql.jdbc.PreparedStatement"%>
+
+<!--%@taglib uri="http://java.sun.com/jsp/jst1/core" prefix="c" %-->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
     <head>
         <meta charset="utf-8">
         <!--響應式標籤-->
@@ -20,7 +25,7 @@
             .row{
                 /*讓第二行排列可以接續開始*/
                 align-content:flex-start;
-                list-style: none;
+                list-style: none;/*去除前面點號*/
                 padding: 0px;
             }
             .top_div{
@@ -31,7 +36,7 @@
                 background-color: #faf2cc;
             }
             .right_div{
-
+                background-color: #f7f7f7;
             }
             .footer{
                 height:50px;
@@ -49,6 +54,12 @@
                 border-style: solid;
                 border-color: #0088cc;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .box:hover {
+                opacity: 0.7;
+                transition: 0.5s;
+                animation-delay: 0.2s;
+                margin-bottom: 20px;
             }
             .box_hr {
                 /*改寫原本bootstrap的hr*/
@@ -73,11 +84,26 @@
                 margin-right: auto;
                 box-shadow: 10px 10px 17px -6px rgba(148,140,148,1);  
             }
-            .box_img:hover {
-                opacity: 0.7;
-                transition: 0.5s;
-                animation-delay: 0.2s;
-                margin-bottom: 20px;
+            .box_text{
+                position:relative;
+                background-color: #f7f7f7;
+                border-radius: .5rem;
+                padding: 5px;
+                height: 90%;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                border: 3px solid gray;
+                box-shadow: 5px 5px 17px -6px rgba(148,140,148,1);  
+            }
+            .text_intro{
+                font-family: 微軟正黑體;
+                display: -webkit-box;  /*設置為webkit box*/
+                text-overflow: ellipsis; /*overflow會加...*/
+                -webkit-line-clamp: 4; /*限制過多行數*/
+                -webkit-box-orient: vertical;/*垂直排列*/
+                overflow-wrap: break-word; /*自動換行*/
+                overflow : hidden;/*過多隱藏*/
             }
             @media screen and (max-width: 600px) {
                 .container-fluid{
@@ -118,16 +144,17 @@
                         <li class="col-xs-12 col-sm-6 col-md-4 block">
                             <div class="box" style="height:auto;">
                                 <div style="height:auto;">
-                                    <h2 class="box_title">
-                                        前端工程師入門
-                                    </h2>
-                                    <img class="box_img" src="Picture/frontend.png">
+                                    <h2:property class="box_title" value=""/>
+                                    <img class = "box_img" src = "Picture/frontend.png">
                                     </img>
                                 </div>
                                 <div style="height:auto;">
                                     <hr class="box_hr"></hr>
                                 </div>
                                 <div style="height:150px;">
+                                    <div class="box_text">
+                                        <p2:property class="text_intro" value=""/>
+                                    </div>
                                 </div>
                             </div>
                         </li>
