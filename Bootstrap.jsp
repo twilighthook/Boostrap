@@ -144,7 +144,7 @@
                         <li class="col-xs-12 col-sm-6 col-md-4 block">
                             <div class="box" style="height:auto;">
                                 <div style="height:auto;">
-                                    <h2:property class="box_title" value=""/>
+                                    <h2:property class="box_title">Title</h2>
                                     <img class = "box_img" src = "Picture/frontend.png">
                                     </img>
                                 </div>
@@ -153,7 +153,7 @@
                                 </div>
                                 <div style="height:150px;">
                                     <div class="box_text">
-                                        <p2:property class="text_intro" value=""/>
+                                        <p2:property class="text_intro">body</p2>
                                     </div>
                                 </div>
                             </div>
